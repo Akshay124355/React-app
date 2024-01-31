@@ -1,24 +1,25 @@
 import React from 'react'
+import { RxCrossCircled } from "react-icons/rx";
 import { deteleUser } from '../../redux/userSlice';
 import { useSelector, useDispatch } from 'react-redux'
-import { RxCross2 } from "react-icons/rx";
 import './userdatacard.scss'
+import { RxCross2 } from "react-icons/rx";
 
 
-const UserDataCard = ({ data, toggle }) => {
-    console.log(toggle, "toggel in card");
+const UserDataCard = ({data}) => {
+    
     const usersAllData = useSelector((store) => store.users.users);
     const dispatch = useDispatch();
 
     const deleteHandle = (id) => {
-        dispatch(deteleUser({ data: usersAllData, id: id }));
+        dispatch(deteleUser({data: usersAllData, id: id}));
     }
-
+    
     return (
         <>
             {data?.map((data) => {
                 return (
-                    <div className={`container ${toggle === 'grid' ? 'grid' : ''}`}>
+                    <div className='container'>
                         <div className="card">
                             <div className="card-title">
                                 <p className='title'>{data?.title}</p>
@@ -26,12 +27,12 @@ const UserDataCard = ({ data, toggle }) => {
                             <div className="card-body">
                                 <p>{data?.body}</p>
                             </div>
-                        </div>
                         <div className="cross-icon">
                             <RxCross2
                                 className='icon'
                                 onClick={() => deleteHandle(data.id)}
                             />
+                        </div>
                         </div>
                     </div>
                 )

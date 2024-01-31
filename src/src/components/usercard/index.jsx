@@ -27,13 +27,16 @@ const UserCard = () => {
     }, [usersAllData])
 
     return (
-        <div className='main-container-wrapper'>
+        <div className='main-container__wrapper'>
+
             <SideBar />
-            <div className="card-contaniner">
+            <div className="card__contaniner">
+
                 <UserDataCard data={data} />
-            <div className='pegination-container'>
-                <Pagination defaultCurrent={1} onChange={getPegination} total={usersAllData.length} />
-            </div>
+
+                <div className='pegination-container'>
+                    <Pagination defaultCurrent={1} onChange={getPegination} total={usersAllData.length} />
+                </div>
             </div>
         </div>
     )

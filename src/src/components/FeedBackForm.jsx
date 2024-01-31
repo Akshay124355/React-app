@@ -13,7 +13,7 @@ const FeedBackForm = () => {
     return (
         <div>
             <form onSubmit={(e) => e.preventDefault()}>
-{/* 
+
                 <input type="text"
                     ref={password}
                     placeholder='First Name'
@@ -46,7 +46,7 @@ const FeedBackForm = () => {
 
                 <button className='p-3 my-5 bg-red-500 w-full font-bold rounded-lg'
                     // onClick={handleSignin}
-                >SubmitFeedback</button> */}
+                >SubmitFeedback</button>
 
 
             </form>
