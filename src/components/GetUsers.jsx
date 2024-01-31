@@ -15,10 +15,12 @@ const GetUsers = () => {
             console.log(error, "error");
         }
     }
-
     useEffect(() => {
-        getUsers()
-    }, [])
+        setTimeout(() => {
+            getUsers()
+        }, 5000);
+    }, []);
+
 }
 
 export default GetUsers

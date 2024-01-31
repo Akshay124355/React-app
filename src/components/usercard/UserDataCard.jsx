@@ -4,16 +4,17 @@ import { useSelector, useDispatch } from 'react-redux'
 import { RxCross2 } from "react-icons/rx";
 import './userdatacard.scss'
 
-
 const UserDataCard = ({ data, toggle }) => {
-    console.log(toggle, "toggel in card");
+
     const usersAllData = useSelector((store) => store.users.users);
     const dispatch = useDispatch();
 
     const deleteHandle = (id) => {
         dispatch(deteleUser({ data: usersAllData, id: id }));
     }
-
+    if (!usersAllData || usersAllData.length === 0) {
+        return <div className='loading'>Loading...</div>;
+    }
     return (
         <>
             {data?.map((data) => {
