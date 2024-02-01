@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button } from 'antd';
- import CommonInput from '../constant/CommonInput';
- import { feedbackFields } from '../constant/constants';
+import CommonInput from '../constant/CommonInput';
+import { feedbackFields } from '../constant/constants';
 import "./feedback.scss"
 
 const FeedBackForm = () => {
@@ -25,13 +25,13 @@ const FeedBackForm = () => {
                 >
                     {feedbackFields.map((data, index) => {
                         return (
-                            <CommonInput props={data} index={index} />
+                            <CommonInput props={data} index={index} key={index}/>
                         )
                     })}
 
-                    <div className="form-container__box__form-wrapper-btn">
-                        <Button htmlType="submit" className='button' loading={isBtnLoading}>
-                        Submit FeedBack
+                    <div>
+                        <Button type="submit" className='submit-button' loading={isBtnLoading}>
+                            Submit FeedBack
                         </Button>
                     </div>
                 </Form>

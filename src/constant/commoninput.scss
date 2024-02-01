@@ -1,0 +1,16 @@
+form {
+    .common-input {
+        height: 3rem;
+        outline: none;
+        border-radius: 15px;
+        border-color: #CBD5E0 !important;
+        box-shadow: none !important;
+        background: #fff;
+
+    }
+    .ant-input:placeholder-shown{
+        font-size: 1rem;
+        font-weight: 500;
+        color: #A1AFC1;
+    }
+}

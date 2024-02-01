@@ -32,6 +32,7 @@ const SideDrawer = () => {
         open={isOpen}
         key={placement}
         width={900}
+        className="ant-drawer"
 
       >
         <FeedBackForm />
