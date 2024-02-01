@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./sidebar.scss";
 import { useState } from 'react';
 import { Radio, Tabs } from 'antd';
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { CiGrid41 } from "react-icons/ci";
 import SideDrawer from './SideDrawer';
-import UserDataCard from '../usercard/UserDataCard';
+import { useDispatch } from 'react-redux'
+import { getToggleValue } from '../../redux/userSlice';
 
 const SideBar = () => {
 
+    const dispatch = useDispatch();
     const [toggle, setToggle] = useState("grid");
     // const [drawerVisible, setDrawerVisible] = useState(true);
     const [mode, setMode] = useState('top');
@@ -18,11 +20,14 @@ const SideBar = () => {
     };
     const handleToggle = (value) => {
         setToggle(value)
-        // console.log(toggle);
     };
     // const handleDrawer = (e) => {
     //     setDrawerVisible(true)
     // };
+
+    useEffect(() => {
+        dispatch(getToggleValue(toggle))
+    }, [toggle])
 
     return (
         <div className='main-container'>
@@ -46,8 +51,6 @@ const SideBar = () => {
                 {drawerVisible ?<SideDrawer />: ""}
         
             </div> */}
-                  <UserDataCard toggle={toggle} />
-
         </div>
     )
 }
