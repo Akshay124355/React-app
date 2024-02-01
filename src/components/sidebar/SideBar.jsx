@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react'
 import "./sidebar.scss";
 import { useState } from 'react';
-import { Radio, Tabs } from 'antd';
+import { Radio } from 'antd';
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { CiGrid41 } from "react-icons/ci";
 import SideDrawer from './SideDrawer';
-import { useDispatch } from 'react-redux'
-import { getToggleValue } from '../../redux/userSlice';
+import { useDispatch, useSelector } from 'react-redux'
+import { getToggleValue, openCloseDrawer } from '../../redux/userSlice';
 
 const SideBar = () => {
 
-    const dispatch = useDispatch();
     const [toggle, setToggle] = useState("grid");
-    // const [drawerVisible, setDrawerVisible] = useState(true);
     const [mode, setMode] = useState('top');
+
+    const dispatch = useDispatch();
 
     const handleModeChange = (e) => {
         setMode(e.target.value);
@@ -21,9 +21,10 @@ const SideBar = () => {
     const handleToggle = (value) => {
         setToggle(value)
     };
-    // const handleDrawer = (e) => {
-    //     setDrawerVisible(true)
-    // };
+
+    const handleDrawer = (e) => {
+        dispatch(openCloseDrawer())
+    };
 
     useEffect(() => {
         dispatch(getToggleValue(toggle))
@@ -45,12 +46,11 @@ const SideBar = () => {
             </div>
             <div className="feedback-container">
                 <h1>Have a FeedBack?</h1>
-                <button className='feed-btn'>We're Listening!</button>
+                <button className='feed-btn' onClick={handleDrawer}>We're Listening!</button>
             </div>
-            {/* <div className="drawer">
-                {drawerVisible ?<SideDrawer />: ""}
-        
-            </div> */}
+            <div className="drawer">
+                <SideDrawer />
+            </div>
         </div>
     )
 }

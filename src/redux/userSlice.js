@@ -4,11 +4,12 @@ const initialState = {
     users: [],
     currentUsers: [],
     endPointRecord: 0,
+    toggleValue: "",
+    isOpen: false,
 }
 const userSlice = createSlice({
     name: "users",
     initialState,
-    toggleValue: "",
     reducers: {
         addUsers: (state, action) => {
             state.users = action.payload;
@@ -20,9 +21,13 @@ const userSlice = createSlice({
         },
         getToggleValue: (state, action) => {
             state.toggleValue = action.payload
+        },
+        openCloseDrawer: (state) => {
+            state.isOpen = !state.isOpen;
         }
+
     }
 })
 
-export const { addUsers, deteleUser,getToggleValue } = userSlice.actions;
+export const { addUsers, deteleUser, getToggleValue, openCloseDrawer } = userSlice.actions;
 export default userSlice.reducer;

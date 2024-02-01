@@ -1,0 +1,35 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__box {
+      background: var(--bg--colors-gray);
+      width: 400px;
+      border-radius: 10px;
+  
+      &-header {
+        margin-bottom: 35px;
+        &-heading-first {
+          font-size: 32px;
+          color: #4fd1c5;
+          margin-bottom: 10px;
+        }
+        &-heading-second {
+          font-size: 16px;
+          font-weight: 700;
+          color: #a0aec0;
+        }
+      }
+  
+      &__form-wrapper {
+        margin-bottom: 22px;
+        .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+          border-color: #4fd1c5;
+        }
+      }
+    }
+  }
+  
+
+  

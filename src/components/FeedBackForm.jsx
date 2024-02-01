@@ -1,57 +1,43 @@
-import React, { useRef, useState } from 'react'
-// import { validateData } from "../utils/validateData"
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react'
+import { Form, Button } from 'antd';
+ import CommonInput from '../constant/CommonInput';
+ import { feedbackFields } from '../constant/constants';
+import "./feedback.scss"
 
 const FeedBackForm = () => {
-    const [error, setError] = useState(null)
-    const dispatch = useDispatch();
 
-    const email = useRef(null);
-    const password = useRef(null);
-    const name = useRef(null);
+    const [isBtnLoading, setIsBtnLoading] = useState(false);
+
+    // form submit function
+    const onFinish = async (values) => {
+        console.log(values);
+        setIsBtnLoading(false);
+
+    };
 
     return (
-        <div>
-            <form onSubmit={(e) => e.preventDefault()}>
-{/* 
-                <input type="text"
-                    ref={password}
-                    placeholder='First Name'
-                    className='p-3 my-4 w-full bg-gray-700 border-none'
-                />
-                <input type="text"
-                    ref={password}
-                    placeholder='Last Name'
-                    className='p-3 my-4 w-full bg-gray-700 border-none'
-                />
-                <input type="text"
-                    ref={password}
-                    placeholder='Country'
-                    className='p-3 my-4 w-full bg-gray-700 border-none'
-                />
-                <textarea name="Address" id="" cols="30" rows="10"></textarea>
+        <div className="form-container" style={{ marginTop: "5rem" }}>
+            <div className="form-container__box">
+                <Form name="form-form"
+                    onFinish={onFinish}
+                    className='form-container__box__form-wrapper'
+                    layout="vertical"
+                >
+                    {feedbackFields.map((data, index) => {
+                        return (
+                            <CommonInput props={data} index={index} />
+                        )
+                    })}
 
-                <input type="email"
-                    ref={email}
-                    placeholder='Email or phone number'
-                    className='p-3 my-4 w-full bg-gray-700 border-none'
-                />
-
-                <input type="number"
-                    // ref={number}
-                    placeholder='Phone number'
-                    className='p-3 my-4 w-full bg-gray-700 border-none'
-                />
-                <p className='text-red-500'>{error}</p>
-
-                <button className='p-3 my-5 bg-red-500 w-full font-bold rounded-lg'
-                    // onClick={handleSignin}
-                >SubmitFeedback</button> */}
-
-
-            </form>
-        </div >
-    )
+                    <div className="form-container__box__form-wrapper-btn">
+                        <Button htmlType="submit" className='button' loading={isBtnLoading}>
+                        Submit FeedBack
+                        </Button>
+                    </div>
+                </Form>
+            </div>
+        </div>
+    );
 }
 
 export default FeedBackForm;
