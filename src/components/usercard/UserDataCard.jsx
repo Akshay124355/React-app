@@ -16,28 +16,30 @@ const UserDataCard = ({ data, toggle }) => {
         return <div className='loading'>Loading...</div>;
     }
     return (
-        <>
+        <div className='user-card-container'>
             {data?.map((data) => {
                 return (
-                    <div className={`container ${toggle === 'grid' ? 'grid' : ''}`}>
-                        <div className="card">
-                            <div className="card-title">
-                                <p className='title'>{data?.title}</p>
+                    <>
+                        <div className={`container ${toggle === 'grid' ? 'grid' : ''}`}>
+                            <div className="card">
+                                <div className="card-title">
+                                    <p className='title'>{data?.title}</p>
+                                </div>
+                                <div className="card-body">
+                                    <p>{data?.body}</p>
+                                </div>
                             </div>
-                            <div className="card-body">
-                                <p>{data?.body}</p>
+                            <div className="cross-icon">
+                                <RxCross2
+                                    className='icon'
+                                    onClick={() => deleteHandle(data.id)}
+                                />
                             </div>
                         </div>
-                        <div className="cross-icon">
-                            <RxCross2
-                                className='icon'
-                                onClick={() => deleteHandle(data.id)}
-                            />
-                        </div>
-                    </div>
+                    </>
                 )
             })}
-        </>
+        </div>
     )
 }
 

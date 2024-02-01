@@ -1,0 +1,17 @@
+.main-container-wrapper {
+    display: grid;
+    grid-template-columns: 25% 70%;
+    background: #e7edf3;
+    
+}
+
+.pegination-container {
+    display: flex;
+    justify-content: end;
+    margin: 2rem 3.5rem;
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .main-container-wrapper {
+        grid-template-columns: 35% 65%;
+    }
+}

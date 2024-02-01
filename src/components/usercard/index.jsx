@@ -3,6 +3,7 @@ import { Pagination } from 'antd';
 import { useSelector } from 'react-redux'
 import UserDataCard from './UserDataCard';
 import './userdatacard.scss'
+import './index.scss'
 import SideBar from '../sidebar/SideBar';
 
 const UserCard = () => {
@@ -30,10 +31,12 @@ const UserCard = () => {
         <div className='main-container-wrapper'>
             <SideBar />
             <div className="card-contaniner">
+
                 <UserDataCard data={data} />
-            <div className='pegination-container'>
-                <Pagination defaultCurrent={1} onChange={getPegination} total={usersAllData.length} />
-            </div>
+
+                <div className='pegination-container'>
+                    <Pagination defaultCurrent={1} onChange={getPegination} total={usersAllData.length} />
+                </div>
             </div>
         </div>
     )
