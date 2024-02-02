@@ -9,7 +9,6 @@ function App() {
     <Provider store={appStore}>
       <div className="App">
         <GetUsers />
-        {/* <FeedBackForm /> */}
         <UserCard />
       </div>
     </Provider>
